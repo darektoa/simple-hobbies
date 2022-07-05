@@ -241,6 +241,137 @@
         },
         "visible": true,
         "id": "9038aecf-a4c8-407d-bf5c-976c73ec4279"
+      },
+      {
+        "name": "hobbies",
+        "comment": "",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "BIGINT(20)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 68.45361328125,
+              "widthDefault": 60
+            },
+            "id": "9a2e067b-0c5e-4a0b-9f5d-2cde1583236d"
+          },
+          {
+            "name": "user_id",
+            "comment": "",
+            "dataType": "BIGINT(20)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 68.45361328125,
+              "widthDefault": 60
+            },
+            "id": "3f8e1d93-c731-43ca-ba5a-27208fc1136d"
+          },
+          {
+            "name": "name",
+            "comment": "",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "7a783970-df12-46d3-8b0b-db76084884ed"
+          },
+          {
+            "name": "created_at",
+            "comment": "",
+            "dataType": "TIMESTAMP",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 63.4326171875,
+              "widthComment": 60,
+              "widthDataType": 76.87060546875,
+              "widthDefault": 60
+            },
+            "id": "41809381-a5d1-45a3-b309-1351cad04db6"
+          },
+          {
+            "name": "updated_at",
+            "comment": "",
+            "dataType": "TIMESTAMP",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 67.0634765625,
+              "widthComment": 60,
+              "widthDataType": 76.87060546875,
+              "widthDefault": 60
+            },
+            "id": "5caadd40-54b3-4dcb-88a5-a02f438c06a8"
+          }
+        ],
+        "ui": {
+          "active": true,
+          "left": 933.7773,
+          "top": 462.1107,
+          "zIndex": 35,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "2d60aa49-df61-4a9c-9ee6-77da1df1bf8e"
       }
     ],
     "indexes": []
@@ -249,6 +380,33 @@
     "memos": []
   },
   "relationship": {
-    "relationships": []
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "9038aecf-a4c8-407d-bf5c-976c73ec4279",
+          "columnIds": [
+            "788cf0a6-3df2-44f2-ba94-682e5b58d882"
+          ],
+          "x": 828.01220703125,
+          "y": 547.5,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "2d60aa49-df61-4a9c-9ee6-77da1df1bf8e",
+          "columnIds": [
+            "3f8e1d93-c731-43ca-ba5a-27208fc1136d"
+          ],
+          "x": 933.7773,
+          "y": 547.8607,
+          "direction": "left"
+        },
+        "constraintName": "fk_users_to_hobbies",
+        "visible": true,
+        "id": "848cbf9f-3c96-4ad1-bb48-a3d1ddbd4077"
+      }
+    ]
   }
 }
