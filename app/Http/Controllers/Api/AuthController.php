@@ -70,4 +70,18 @@ class AuthController extends Controller
             );
         }
     }
+
+
+    public function signOut() {
+        try{
+            Auth::logout();
+            return ResponseHelper::make();
+        }catch(ErrorException $err) {
+            return ResponseHelper::error(
+                $err->getErrors(),
+                $err->getMessage(),
+                $err->getCode(),
+            );
+        }
+    }
 }
