@@ -15,6 +15,16 @@ class MemberController extends Controller
 {
     use RequestValidator;
 
+
+    public function index() {
+        $members = Member::get();
+
+        return ResponseHelper::make(
+            MemberResource::collection($members)
+        );
+    }
+
+    
     public function store(Request $request) {
         try{
             $this->validate($request, [
