@@ -7,7 +7,8 @@
 
 ## About Simple Hobbies API
 
-Simple hobbies API is project for interview test
+- Simple hobbies API is project for interview test
+- API Docs: https://www.postman.com/darektoa/workspace/simple-hobbies
 
 ## How To Install
 - Open your terminal
