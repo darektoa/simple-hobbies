@@ -18,4 +18,9 @@ class ErrorException extends Exception
         parent::__construct($message, $code, $previous);
         $this->errors = $errors;
     }
+
+
+    public function getErrors() {
+        return $this->errors;
+    }
 }
