@@ -121,4 +121,19 @@ class MemberController extends Controller
             );
         }
     }
+
+
+    public function destroy(Member $member) {
+        try{
+            $member->hobbies()->delete();
+            $member->delete();
+            return ResponseHelper::make();
+        }catch(ErrorException $err) {
+            return ResponseHelper::error(
+                $err->getErrors(),
+                $err->getMessage(),
+                $err->getCode(),
+            );
+        }
+    }
 }
