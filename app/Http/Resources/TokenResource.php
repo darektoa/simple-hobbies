@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class TokenResource extends JsonResource
 {
@@ -14,6 +15,12 @@ class TokenResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        $item = (object) $this->all();
+
+        return [
+            'access'     => $item->token,
+            'type'       => $item->type ?? 'bearer',
+            'expires_in' => (Auth::factory()->getTTL() * 60) ?? null,
+        ];
     }
 }
