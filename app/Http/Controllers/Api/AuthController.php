@@ -15,6 +15,33 @@ class AuthController extends Controller
 {
     use RequestValidator;
 
+    
+    public function signIn(Request $request) {
+        try{
+            $this->validate($request, [
+                'email'     => 'required|email',
+                'password'  => 'required|string',
+            ]);
+
+            $credential = $request->only(['email', 'password']);
+            $token      = Auth::attempt($credential);
+            $user       = $token ? collect(Auth::user())->put('token', $token) : null;
+
+            if(!$token) throw new ErrorException('Unauthorized', 401, [
+                "Account doesn't match"
+            ]);
+
+            return ResponseHelper::make(UserResource::make($user));
+        }catch(ErrorException $err) {
+            return ResponseHelper::error(
+                $err->getErrors(),
+                $err->getMessage(),
+                $err->getCode(),
+            );
+        }
+    }
+
+
     public function signUp(Request $request) {
         try{
             $this->validate($request, [
@@ -33,7 +60,7 @@ class AuthController extends Controller
             
             $token  = Auth::login($user);
             $user   = collect($user)->put('token', $token);
-            
+
             return ResponseHelper::make(UserResource::make($user));
         }catch(ErrorException $err) {
             return ResponseHelper::error(
