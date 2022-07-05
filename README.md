@@ -29,4 +29,4 @@ Simple hobbies API is project for interview test
 
 ## License
 
-The Simple Parking project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Simple Hobbies project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
