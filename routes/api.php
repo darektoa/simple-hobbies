@@ -27,5 +27,6 @@ Route::middleware('auth:api')->group(function() {
         Route::post('/', [MemberController::class, 'store']);
         Route::get('/{member:id}', [MemberController::class, 'show']);
         Route::put('/{member:id}', [MemberController::class, 'update']);
+        Route::delete('/{member:id}', [MemberController::class, 'destroy']);
     });
 });
