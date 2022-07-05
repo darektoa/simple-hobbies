@@ -14,6 +14,16 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        $item = (object) $this->all();
+
+        return [
+            'id'            => $item->id,
+            'name'          => $item->name,
+            'email'         => $item->email,
+            'phone'         => $item->phone,
+            'created_at'    => $item->created_at,
+            'updated_at'    => $item->updated_at,
+            'token'         => TokenResource::make($this->when($item->token, collect(['token' => $item->token])))
+        ];
     }
 }
