@@ -23,6 +23,7 @@ Route::middleware('auth:api')->group(function() {
 
     // MEMBER
     Route::prefix('/members')->group(function() {
+        Route::get('/', [MemberController::class, 'index']);
         Route::post('/', [MemberController::class, 'store']);
     });
 });
