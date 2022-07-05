@@ -20,4 +20,9 @@ Route::middleware('auth:api')->group(function() {
     Route::prefix('/auth')->group(function() {
         Route::post('/signout', [AuthController::class, 'signOut']);
     });
+
+    // MEMBER
+    Route::prefix('/members')->group(function() {
+        Route::post('/', [MemberController::class, 'store']);
+    });
 });
